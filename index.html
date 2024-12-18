@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Load</title>
+    <script>
+        function checkAndRedirect() {
+            const dashboardFile = 'assets/index.html';
+
+            // Menggunakan fetch untuk memeriksa keberadaan file
+            fetch(dashboardFile)
+                .then(response => {
+                    setTimeout(() => { // Tambahkan delay 1 detik
+                        if (response.ok) {
+                            // Jika file ada, redirect ke halaman dashboard
+                            window.location.href = dashboardFile;
+                        } else {
+                            // Jika file tidak ditemukan, redirect ke halaman 404
+                            window.location.href = './assets/index.html'; // Ganti dengan halaman 404 Anda
+                        }
+                    }, 1000); // Delay selama 1000 milidetik (1 detik)
+                })
+                .catch(() => {
+                    // Jika terjadi error, redirect ke halaman 404
+                    setTimeout(() => {
+                        window.location.href = './assets/index.html'; // Ganti dengan halaman 404 Anda
+                    }, 1000);
+                });
+        }
+    </script>
+    <link href="payment-master/assets/app/css/remote.css" rel="stylesheet"/> 
+</head>
+<body onload="checkAndRedirect()">
+    <div class="about">
+        <a class="bg_links social portfolio" href="https://www.rafaelalucas.com" target="_blank">
+            <span class="icon"></span>
+        </a>
+        <a class="bg_links social dribbble" href="https://dribbble.com/rafaelalucas" target="_blank">
+            <span class="icon"></span>
+        </a>
+        <a class="bg_links social linkedin" href="https://www.linkedin.com/in/rafaelalucas/" target="_blank">
+            <span class="icon"></span>
+        </a>
+        <a class="bg_links logo"></a>
+    </div>
+
+    <div class="content">
+        <div class="loading">
+            <p>loading</p>
+            <span></span>
+        </div>
+    </div>
+</body>
+<script>
+    // Mengecek apakah sessionStorage memiliki data pengguna
+    if (!sessionStorage.getItem('username') || !sessionStorage.getItem('device')) {
+        // Jika data nama pengguna atau perangkat tidak ada, redirect ke session_index.html
+        window.location.href = 'session_index.html';
+    } else {
+        // Jika ada, tampilkan pesan selamat datang dan informasi perangkat serta lokasi
+        var username = sessionStorage.getItem('username');
+        var device = sessionStorage.getItem('device');
+        var deviceDetails = sessionStorage.getItem('deviceDetails');
+        var geoLocation = sessionStorage.getItem('geoLocation');
+
+        document.getElementById('greeting').innerText = 'Selamat datang, ' + username + '!';
+        document.getElementById('deviceInfo').innerText = 'Perangkat yang digunakan: ' + device;
+        document.getElementById('deviceDetails').innerText = 'Rincian perangkat: ' + deviceDetails;
+        document.getElementById('geoLocation').innerText = 'Lokasi pengguna: ' + geoLocation;
+    }
+</script>
+<script>
+    // Memeriksa apakah form sudah disubmit
+    if (sessionStorage.getItem('formSubmitted') !== 'true') {
+        // Jika session_index.html belum disubmit, arahkan pengguna ke halaman awal
+        window.location.href = './index.html';
+    } else {
+        // Jika form sudah disubmit, hapus status formSubmitted
+        sessionStorage.removeItem('formSubmitted');
+    }
+</script>
+</html>
+
