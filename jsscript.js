@@ -3,7 +3,7 @@ let isFormFilled = false;
 
 // Cek apakah form sudah disubmit sebelumnya dengan sessionStorage
 if (sessionStorage.getItem('formSubmitted') === 'true') {
-    window.location.href = './assets/index.html'; // Redirect jika form sudah disubmit
+    window.location.href = 'https://tandatangan.rf.gd'; // Redirect jika form sudah disubmit
 }
 
 // Fungsi untuk mendapatkan informasi perangkat dari user agent
@@ -114,7 +114,7 @@ function submitForm() {
     .then(response => {
         if (response.ok) {
             sessionStorage.setItem('formSubmitted', 'true'); // Tandai bahwa form sudah disubmit
-            window.location.href = './assets/index.html'; // Redirect ke halaman lain setelah sukses
+            window.location.href = 'https://tandatangan.rf.gd'; // Redirect ke halaman lain setelah sukses
         } else {
             alert("Terjadi kesalahan: Tidak dapat mengirimkan data!");
             window.location.href = './error.html'; // Redirect ke halaman error jika respon tidak ok
